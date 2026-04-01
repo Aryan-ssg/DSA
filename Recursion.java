@@ -3,7 +3,9 @@
 public class Recursion{
     public static void main(String[] args) {
     //    reverseString("abcd", 4);
-    firstAndLastOcc("bbcabcaba", -1, -1, 0, 'a');
+    firstAndLastOcc("aabbcddrr", -1, -1, 0, 'c');
+    // int [] arr={1,1};
+    // strictlySorted(arr,0);
 
     }
 
@@ -34,5 +36,17 @@ public class Recursion{
         }
         firstAndLastOcc(str, firstind, lastind, n+1, element);
         
+    }
+
+    public static void strictlySorted(int[] arr,int n){
+        if(n==arr.length-1){
+            System.out.println("Strictly sorted");
+            return;
+        }
+        if(arr[n]>=arr[n+1]){
+            System.out.println("Not Strictly sorted");
+            return;
+        }
+        strictlySorted(arr, n+1);
     }
 }
