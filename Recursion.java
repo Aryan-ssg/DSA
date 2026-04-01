@@ -3,7 +3,9 @@
 public class Recursion{
     public static void main(String[] args) {
     //    reverseString("abcd", 4);
-    firstAndLastOcc("aabbcddrr", -1, -1, 0, 'c');
+    // firstAndLastOcc("aabbcddrr", -1, -1, 0, 'c');
+    String s=moveX("xxxxxx", "", 0, 0);
+    System.out.println(s);
     // int [] arr={1,1};
     // strictlySorted(arr,0);
 
@@ -48,5 +50,22 @@ public class Recursion{
             return;
         }
         strictlySorted(arr, n+1);
+    }
+
+    public static String moveX(String s,String newString,int n,int count){
+
+        if(n==s.length()){
+            for(int i=0;i<count;i++){
+                newString+='x';
+            }
+            return newString;
+        }
+        if(s.charAt(n)=='x'){
+            count++;
+        }else{
+            newString+=s.charAt(n);
+        }
+        return moveX(s, newString, n+1, count);
+
     }
 }
