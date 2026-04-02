@@ -4,10 +4,29 @@ public class Recursion{
     public static void main(String[] args) {
     //    reverseString("abcd", 4);
     // firstAndLastOcc("aabbcddrr", -1, -1, 0, 'c');
-    String s=moveX("xxxxxx", "", 0, 0);
-    System.out.println(s);
+    // String s=moveX("asdfxxxfghjxfxg", "", 0, 0);
+    // System.out.println(s);
     // int [] arr={1,1};
     // strictlySorted(arr,0);
+    int[] arr=new int[26];
+    String s=removeDuplicate("awsedrfgthbfdas", "", arr, 0);
+        System.out.println(s);
+    }
+
+
+    public static String removeDuplicate(String str,String newString,int[] arr,int n){
+
+        if(n==str.length()){
+            return newString;
+        }
+
+        if((arr[((int)str.charAt(n))-97] == 1)){
+            return removeDuplicate(str,newString, arr, n+1);
+        }else{
+            newString+=str.charAt(n);
+            arr[((int)str.charAt(n))-97]=1;
+            return removeDuplicate(str, newString, arr, n+1);
+        }
 
     }
 
