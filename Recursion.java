@@ -12,10 +12,27 @@ public class Recursion {
         // int[] arr = new int[26];
         // String s = removeDuplicate("awsedrfgthbfdas", "", arr, 0);
         // System.out.println(s);
-        List<String> lst=subsequences("aaa", 0, new ArrayList<String>(),"" );
-        for(int i=0;i<lst.size();i++){
-            System.out.println(lst.get(i));
+        // List<String> lst=subsequences("aaa", 0, new ArrayList<String>(),"" );
+        // for(int i=0;i<lst.size();i++){
+        //     System.out.println(lst.get(i));
+        // }
+        String[] keypad={".","abc","def","ghi","jkl","mno","pqrs","tu","vwx","yz"};
+        keypadComb("45", 0, keypad, "");
+    }
+
+    public static void keypadComb(String str,int n,String[] keypad,String combination){
+
+        if(n==str.length()){
+            System.out.println(combination);
+            return;
         }
+        char c=str.charAt(n);
+        String mapping = keypad[c-'0'];
+
+        for(int i=0;i<mapping.length();i++){
+            keypadComb(str, n+1, keypad, combination+mapping.charAt(i));
+        }
+
     }
 
     public static List<String> subsequences(String str, int n, List<String> sequences, String seq) {
