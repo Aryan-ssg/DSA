@@ -1,7 +1,7 @@
 public class TargetSum {
     public static void main(String[] args) {
 
-        int[] arr = { 1, 1, 2, 3 };
+        int[] arr = { 1, 2, 3 };
         int n = arr.length;
         int targetsum = 1;
 
@@ -9,10 +9,16 @@ public class TargetSum {
         for (int i : arr) {
             sum += i;
         }
-        int target = (sum - targetsum) / 2;
+        if ((sum - targetsum) % 2 != 0) {
+            System.out.println("0");
 
-        int count=countOfSubsetSum(arr, n, target);
-        System.out.println(count);
+        } else {
+            int target = (sum - targetsum) / 2;
+
+            int count = countOfSubsetSum(arr, n, target);
+            System.out.println(count);
+        }
+
     }
 
     static int countOfSubsetSum(int[] arr, int n, int target) {
